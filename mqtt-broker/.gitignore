@@ -1,0 +1,8 @@
+.env
+mosquitto/config/passwords
+mosquitto/data/mosquitto.db
+mosquitto/log/mosquitto.log
+mosquitto/certs/*.crt
+mosquitto/certs/*.key
+mosquitto/certs/*.csr
+mosquitto/certs/*.srl

@@ -1,0 +1,45 @@
+# Enable by copying to:
+#   mosquitto/config/conf.d/bridge-remote-gateway.conf
+# and adjusting values.
+#
+# Example use case:
+# Receive selected topics from external generator gateway and republish locally.
+
+connection remote-gateway
+address example.com:8883
+bridge_protocol_version mqttv311
+remote_clientid wemore-bridge
+remote_username bridge-user
+remote_password bridge-password
+bridge_insecure false
+cleansession true
+try_private false
+start_type automatic
+notifications false
+restart_timeout 10
+
+# Pull only relevant topics from remote broker into this one:
+topic vitals/generator/# in 1
+topic vitals/hmd/# in 1
+# Optional bridge example: remote gateway broker forwarding to core cloud broker.
+# Copy to bridge-remote-gateway.conf and set credentials/certs.
+
+connection gw-site-a-to-core
+address localhost:8883
+bridge_protocol_version mqttv311
+cleansession true
+notifications false
+try_private false
+start_type automatic
+restart_timeout 5
+
+bridge_cafile /mosquitto/certs/ca.crt
+remote_username hmhd-device
+remote_password change-hmhd-pass
+remote_clientid gw-11-bridge
+
+# Outbound from remote site to core
+topic vitals/# out 1
+topic tqb_processing.2.app.vitals.topic out 1
+topic gps/# out 1
+topic vitals/control/# both 1
