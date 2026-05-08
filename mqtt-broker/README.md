@@ -14,11 +14,9 @@ It is isolated under `mqtt-broker` so you can open it as a separate workspace.
 - `docker-compose.yml`: Mosquitto container pinned to `eclipse-mosquitto:2.1.2`
 - `mosquitto/config/mosquitto.conf`: main broker config
 - `mosquitto/config/aclfile`: topic permissions per client type
-- `mosquitto/config/conf.d/bridge-remote-gateway.example.conf`: optional bridge config
 - `scripts/generate-certs.sh`: create self-signed TLS certs
 - `scripts/create-password-file.sh`: create/update Mosquitto password file
-- `backend/*.js`, `mobile/*.js`, `web/*.js`: sample publisher/subscriber clients
-- `REPORT_GENERATOR_WEBAPP_INTEGRATION.md`: full handoff report
+- `backend/nodejs-subscriber.js`: backend subscriber example
 
 ## 2) Topic contract
 
@@ -53,17 +51,14 @@ It is isolated under `mqtt-broker` so you can open it as a separate workspace.
 
    - `docker compose logs -f mosquitto`
 
-## 4) Local client examples
+## 4) Local client usage
 
 Install dependency once in any local test folder:
 
 - `npm i mqtt`
 
-Run sample clients:
+Run subscriber client:
 
-- Generator publisher: `node backend/generator-publisher-example.js`
-- HMD publisher: `node backend/hmd-publisher-example.js`
-- Mobile publisher: `node mobile/mobile-example.js`
 - Backend subscriber: `node backend/nodejs-subscriber.js`
 
 Each script can be configured with environment variables:
@@ -123,7 +118,6 @@ mqtt-broker/
   backend/
     nodejs-subscriber.js
   web/
-    example-websocket-client.js
 ```
 
 ## 3) Quick Start
@@ -277,7 +271,7 @@ Recommended DB split:
   - `gps/#`
   - `vitals/#`
 
-See `web/example-websocket-client.js`.
+Use MQTTX or your own web client implementation for WebSocket testing.
 
 ### Mobile app behavior
 
