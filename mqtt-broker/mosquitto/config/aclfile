@@ -4,14 +4,17 @@
 # Add future users by appending new `user` sections below.
 
 user generator-client
-topic write vitals/generator/#
-topic readwrite vitals/control/#
+topic write in.vitals.gen/#
+topic readwrite in.vitals.gen/control/#
 
 user admin
 topic readwrite #
 
 user rpi-1
-topic readwrite gps/#
+topic readwrite in.gps/#
 
 user rpi-2
-topic readwrite gps/#
+topic readwrite in.gps/#
+
+user tqb
+topic readwrite in.vitals
