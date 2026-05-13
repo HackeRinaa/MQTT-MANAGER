@@ -16,5 +16,5 @@ topic readwrite in.gps/#
 user rpi-2
 topic readwrite in.gps/#
 
-user tqb
-topic readwrite in.vitals
+user lora
+topic readwrite #
