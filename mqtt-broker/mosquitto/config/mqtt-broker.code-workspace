@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "mqtt-broker",
+			"path": "../../../../wemore/mqtt-broker"
+		},
+		{
+			"name": "MQTT-WEMOR",
+			"path": "../../.."
+		}
+	],
+	"settings": {}
+}
